@@ -1,0 +1,19 @@
+package com.simv.property_management.repository;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.simv.property_management.entity.CityEntity;
+
+public interface CityRepository extends CrudRepository<CityEntity, Long> {
+
+    // Example Quires 
+    Optional<CityEntity> findByLabelContains(String cityName);
+    List<CityEntity> findAllByLabelContains(String cityName);
+
+    List<CityEntity> findAllByLabelContainsOrderByLabelAsc(String cityName);
+    List<CityEntity> findAllByLabelContainsOrderByLabelDesc(String cityName);
+    
+    
+}

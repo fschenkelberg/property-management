@@ -1,0 +1,71 @@
+package com.simv.property_management.entity;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Table(name = "EVENT_TABLE")
+@Getter
+@Setter
+@NoArgsConstructor
+public class EventEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @ManyToOne
+    private  UserEntity owner;
+
+    @OneToOne
+    private ImageEntity stallLayoutImg;
+
+    @OneToOne
+    private ImageEntity inventationImg;
+
+    @OneToOne
+    private ImageEntity image1;
+
+    @OneToOne
+    private ImageEntity image2;
+
+    @OneToOne
+    private ImageEntity image3;
+
+    @OneToOne
+    private ImageEntity image4;
+
+    @OneToOne
+    private ImageEntity image5;
+
+    @Column(name = "PRICE_PER_SQ_FT");
+    private Double pricePerSqFt;
+
+    // Event Info
+    private String eventName;
+
+    private String eventDesc;
+
+    private LocalDate eventStartDt;
+
+    private LocalDate eventEndDt;
+
+    // Event Address
+    private String eventStreet;
+
+    private String eventAddressLine;
+
+    private Long eventCityId;
+    
+    private Long eventStateId;
+
+    // Cont...
+}

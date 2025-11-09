@@ -1,0 +1,16 @@
+package com.simv.property_management.repository;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+import com.simv.property_management.entity.EventEntity;
+
+public interface EventRepository extends JpaRepository<EventEntity, Long> {
+
+    // Pagination Example
+    // Uses page instead
+    Page<CityEntity> findAllByLabelContainsOrderByLabelAsc(String cityName, Pageable pageable);
+}
