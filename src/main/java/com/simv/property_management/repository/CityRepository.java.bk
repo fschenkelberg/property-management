@@ -14,6 +14,15 @@ public interface CityRepository extends JpaRepository<CityEntity, Long> {
 
     List<CityEntity> findAllByLabelContainsOrderByLabelAsc(String cityName);
     List<CityEntity> findAllByLabelContainsOrderByLabelDesc(String cityName);
-    
-    
+
+    // Note that you can also have these Common Derived Query:
+    //    findBy…	Retrieves data (returns entity or list)
+    //    readBy…	Same as findBy…
+    //    getBy…	Same as findBy…
+    //    queryBy…	Same as findBy…
+    //    countBy…	Returns number of entities matching condition
+    //    existsBy…	Returns true/false if record(s) exist
+    //    deleteBy…	Deletes all entities matching condition
+    //    removeBy…   Same as deleteBy…
+    // https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html#repositories.query-methods.query-creation
 }

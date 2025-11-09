@@ -1,0 +1,32 @@
+package com.simv.property_management.service.impl;
+
+import com.simv.property_management.service.EventService;
+import com.simv.property_management.repository.EventRepository;
+import com.simv.property_management.dto.EventDTO;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class EventServiceImpl implements EventService {
+
+    @Autowired
+    private EventRepository eventRepository;
+
+    @Override
+    public List<EventDTO> getUpcomingEvents(Pageable pageable) {
+        Page<EventEntity> eventPage = eventRepository.findAllByLabelContainsOrderByLabelAsc();
+        List<EventDTO> eventDTOList = eventPage.stream().map(e -> {
+            EventDTO eventDTO = eventConverter.convertEntityToDTO(e);
+            eventDTO.setOwnser(null);
+            return eventDTO;
+        }) //.sorted(Comparator.comparing(EventDTO::getCreatedDateTime).reversed())
+        .collect(Collectors.toList());
+        return eventDTOList;
+    }
+}
