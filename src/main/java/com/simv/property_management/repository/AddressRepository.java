@@ -1,7 +1,8 @@
 package com.simv.property_management.repository;
 
-import com.simv.property_management.entity.AddressEntity;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface AddressRepository extends CrudRepository<AddressEntity, Long> {
+import com.simv.property_management.entity.AddressEntity;
+
+public interface AddressRepository extends JpaRepository<AddressEntity, Long> {
 }

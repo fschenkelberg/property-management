@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 
 import com.simv.property_management.entity.EventEntity;
 
+// Must Use JpaRepository for Pagination
 public interface EventRepository extends JpaRepository<EventEntity, Long> {
 
     // Pagination Example

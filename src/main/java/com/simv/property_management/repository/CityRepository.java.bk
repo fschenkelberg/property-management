@@ -2,11 +2,11 @@ package com.simv.property_management.repository;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.simv.property_management.entity.CityEntity;
 
-public interface CityRepository extends CrudRepository<CityEntity, Long> {
+public interface CityRepository extends JpaRepository<CityEntity, Long> {
 
     // Example Quires 
     Optional<CityEntity> findByLabelContains(String cityName);
